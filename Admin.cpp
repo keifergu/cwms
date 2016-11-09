@@ -6,7 +6,7 @@ Admin::Admin(){
 	init();
 }
 
-~Admin::Admin(){
+Admin::~Admin(){
 
 }
 
