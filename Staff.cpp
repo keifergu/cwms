@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Staff.h"
 
 Staff::Staff(string t_name, string t_age,string t_sex, string t_worktime)
@@ -36,6 +37,10 @@ void Staff::setJobMoney(int m){
   jobMoney = m;
 }
 
+void Staff::setBaseMoney(int)
+{
+}
+
 void Staff::setYearMoney(int m){
   yearMoney = m;
 }
@@ -50,4 +55,8 @@ void Staff::setJob(string t_job){
 
 int Staff::getMoney(){
   return baseMoney + jobMoney + yearMoney + bonus;
+}
+
+void Staff::setMoney()
+{
 }

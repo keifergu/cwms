@@ -13,3 +13,8 @@
 
 
 // TODO:  在此处引用程序需要的其他头文件
+#include "Staff.h"
+#include "MiddleManager.h"
+#include "Finance.h"
+#include "Admin.h"
+#include "HighManager.h"

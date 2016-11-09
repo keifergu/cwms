@@ -1,4 +1,4 @@
-
+#include "stdafx.h"
 #include "MiddleManager.h"
 
 MiddleManager::MiddleManager(string t_name, string t_age,string t_sex, string t_worktime)
@@ -9,8 +9,9 @@ MiddleManager::MiddleManager(string t_name, string t_age,string t_sex, string t_
 }
 
 int MiddleManager::getMoney(){
-	
+	return 1;
 }
+
 void MiddleManager::setMoney(int ym, int b){
 	setYearMoney(ym*2);
 	setBonus(b);

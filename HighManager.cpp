@@ -1,4 +1,4 @@
-
+#include "stdafx.h"
 #include "HighManager.h"
 
 HighManager::HighManager(string t_name, string t_age,string t_sex, string t_worktime)
@@ -6,6 +6,11 @@ HighManager::HighManager(string t_name, string t_age,string t_sex, string t_work
 {
 	setJob("高层管理人员");
 	setJobMoney(400);
+}
+
+int HighManager::getMoney()
+{
+	return 0;
 }
 
 void HighManager::setMoney(int ym, int b){

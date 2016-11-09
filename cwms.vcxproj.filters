@@ -21,12 +21,42 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Admin.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Finance.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HighManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MiddleManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Staff.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="cwms.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Admin.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Finance.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HighManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MiddleManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Staff.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

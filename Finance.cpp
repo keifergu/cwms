@@ -1,4 +1,4 @@
-
+#include "stdafx.h"
 #include "Finance.h"
 
 Finance::Finance(string t_name, string t_age,string t_sex, string t_worktime)
@@ -8,7 +8,7 @@ Finance::Finance(string t_name, string t_age,string t_sex, string t_worktime)
 }
 
 int Finance::getMoney(){
-	
+	return 1;
 }
 
 void Finance::setMoney(int ym, int b){
