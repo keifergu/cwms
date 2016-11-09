@@ -1,6 +1,5 @@
 
 #include "Admin.h"
-#include <string>
 
 Admin::Admin(){
 	init();
@@ -12,8 +11,8 @@ Admin::~Admin(){
 
 void Admin::init(){
 	// 初始化数据
-	char* st1[4] = {"Job","35","男","5年"};
-	char* st2[4] = {"Mike","40","男","4年"};
+	string st1[4] = {"Job","35","男","5年"};
+	string st2[4] = {"Mike","40","男","4年"};
 	MiddleManager* mm1 = new MiddleManager(st1[0],st1[1],st1[2],st1[3]);
 	mm1->setMoney(100,300);
 	MiddleManager* mm2 = new MiddleManager(st2[0],st2[1],st2[2],st2[3]);
@@ -52,7 +51,8 @@ void Admin::showAddStaff(){
 
 }
 
-void Admin::showStaffAdmin(std::vector<string> v){
+void Admin::showStaffAdmin(){
+	int t = 1;
 	cout<<"name\tage\tsex\twork time\tjob\t"<<endl;
 	cout<<middleStaff[t]->getName();
 	cout<<middleStaff[t]->getAge();
@@ -64,35 +64,6 @@ void Admin::showStaffAdmin(std::vector<string> v){
 	int i = middleStaff.size();
 	int m = highStaff.size();
 	int n = financeStaff.size();
-	int t;
-	cout<<"\n\n";
-	for(t = 0; t<i; t++){
-		cout<<"name:"<<middleStaff[t]->getName();
-		cout<<" age:"<<middleStaff[t]->getAge();
-		cout<<" sex:"<<middleStaff[t]->getSex();
-		cout<<" workTime:"<<middleStaff[t]->getWorkTime();
-		cout<<" wages:"<<middleStaff[t]->getMoney();
-		cout<<" job:"<<middleStaff[t]->getJob()<<endl;
-	}
-	for(t = 0; t<m; t++){
-		cout<<"name:"<<highStaff[t]->getName();
-		cout<<" age:"<<highStaff[t]->getAge();
-		cout<<" sex:"<<highStaff[t]->getSex();
-		cout<<" workTime:"<<highStaff[t]->getWorkTime();
-		cout<<" wages:"<<highStaff[t]->getMoney();
-		cout<<" job:"<<highStaff[t]->getJob()<<endl;
-	}
-	for(t = 0; t<n; t++){
-		cout<<"name:"<<financeStaff[t]->getName();
-		cout<<" age:"<<financeStaff[t]->getAge();
-		cout<<" sex:"<<financeStaff[t]->getSex();
-		cout<<" workTime:"<<financeStaff[t]->getWorkTime();
-		cout<<" wages:"<<financeStaff[t]->getMoney();
-		cout<<" job:"<<financeStaff[t]->getJob()<<endl;
-	}
-	if(i==0&&m==0&&n==0){
-		cout<<"当前没有员工信息，请输出信息后查看"<<endl;
-	}
 	cout<<"\n\n";
 }
 

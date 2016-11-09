@@ -1,6 +1,8 @@
 
 #include "Finance.h"
 #include "HighManager.h"
+#pragma once
+
 #include "MiddleManager.h"
 
 #include <string>
