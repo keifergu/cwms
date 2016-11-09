@@ -7,46 +7,46 @@ Staff::Staff(char* t_name, char* t_age,char* t_sex, char* t_worktime)
   jobMoney = yearMoney = bonus = 0;
 }
 
-char* getName::Staff(){
+char* Staff::getName(){
   return name;
 }
 
-char* getSex::Staff(){
+char* Staff::getSex(){
   return sex;
 }
 
-char* getJob::Staff(){
+char* Staff::getJob(){
   return job;
 }
 
-char* getAge::Staff(){
+char* Staff::getAge(){
   return age;
 }
 
-char* getWorkTime::Staff(){
+char* Staff::getWorkTime(){
   return workTime;
 }
 
-void setName::Staff(char* t_name){
+void Staff::setName(char* t_name){
   name = t_name;
 }
 
-void setJobMoney::Staff(int m){
+void Staff::setJobMoney(int m){
   jobMoney = m;
 }
 
-void setYearMoney::Staff(int m){
+void Staff::setYearMoney(int m){
   yearMoney = m;
 }
 
-void setBonus::Staff(int m){
+void Staff::setBonus(int m){
   bonus = m;
 }
 
-void setJob::Staff(char* t_job){
+void Staff::setJob(char* t_job){
   job = t_job;
 }
 
-int getWages::Staff(){
+int Staff::getWages(){
   return baseMoney + jobMoney + yearMoney + bonus;
 }

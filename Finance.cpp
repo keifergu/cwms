@@ -7,11 +7,11 @@ Finance::Finance(char* t_name, char* t_age,char* t_sex, char* t_worktime)
 
 }
 
-int getMoney::Finance(){
+int Finance::getMoney(){
 	
 }
 
-void setMoney::Finance(int ym, int b){
+void Finance::setMoney(int ym, int b){
 	
 }
 

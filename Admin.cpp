@@ -10,7 +10,7 @@ Admin::~Admin(){
 
 }
 
-void init::Admin(){
+void Admin::init(){
 	// 初始化数据
 	char* st1[4] = {"Job","35","男","5年"};
 	char* st2[4] = {"Mike","40","男","4年"};
@@ -25,7 +25,7 @@ void init::Admin(){
 	showMenu();
 }
 
-void showMenu::Admin(){
+void Admin::showMenu(){
 	// 主菜单
 	int f = 1;
 	while(f != 0) {
@@ -44,15 +44,15 @@ void showMenu::Admin(){
 	}
 }
 
-void showWageAdmin::Admin(){
+void Admin::showWageAdmin(){
 
 }
 
-void showAddStaff::Admin(){
+void Admin::showAddStaff(){
 
 }
 
-void showStaffAdmin::Admin(std::vector<string> v){
+void Admin::showStaffAdmin(std::vector<string> v){
 	cout<<"name\tage\tsex\twork time\tjob\t"<<endl;
 	cout<<middleStaff[t]->getName();
 	cout<<middleStaff[t]->getAge();
@@ -97,11 +97,11 @@ void showStaffAdmin::Admin(std::vector<string> v){
 }
 
 
-string getStaffInfo::Admin(){
+string Admin::getStaffInfo(){
 
 }
 
-string getAllWagesInfo::Admin(){
+string Admin::getAllWagesInfo(){
 	int i = middleStaff.size();
 	int m = highStaff.size();
 	int n = financeStaff.size();
@@ -142,7 +142,7 @@ string getAllWagesInfo::Admin(){
 }
 
 
-void addStaff::Admin(){
+void Admin::addStaff(){
 	char name[20], age[20], sex[4], time[20];
 	int yearMoney,bonus,type;
 	type = 1;
@@ -185,15 +185,15 @@ void addStaff::Admin(){
 	};
 }
 
-void setStaffInfo::Admin(int i){
+void Admin::setStaffInfo(int i){
 
 }
 
 
-void exportFile::Admin(char* type, char* path){
+void Admin::exportFile(char* type, char* path){
 
 }
 
-void importFile::Admin(char* type, char* path){
+void Admin::importFile(char* type, char* path){
 
 }

@@ -8,10 +8,10 @@ MiddleManager::MiddleManager(char* t_name, char* t_age,char* t_sex, char* t_work
 	setJobMoney(200);
 }
 
-int getMoney::MiddleManager(){
+int MiddleManager::getMoney(){
 	
 }
-void setMoney::MiddleManager(int ym, int b){
+void MiddleManager::setMoney(int ym, int b){
 	setYearMoney(ym*2);
 	setBonus(b);
 }

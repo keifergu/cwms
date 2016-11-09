@@ -8,7 +8,7 @@ HighManager::HighManager(char* t_name, char* t_age,char* t_sex, char* t_worktime
 	setJobMoney(400);
 }
 
-void setMoney::HighManager(int ym, int b){
+void HighManager::setMoney(int ym, int b){
 	setYearMoney(ym*3);
 	setBonus(b);
 }
