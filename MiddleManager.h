@@ -3,8 +3,9 @@
 
 class MiddleManager : public Staff{
 public:
- MiddleManager(string, string,string, string);
+	MiddleManager(string, string, string, string);
+	~MiddleManager();
 
- int getMoney();
- void setMoney(int, int);
+	int getMoney();
+	void setMoney(int basem, int jobm, int bonus);
 };

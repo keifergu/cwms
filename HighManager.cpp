@@ -8,12 +8,28 @@ HighManager::HighManager(string t_name, string t_age,string t_sex, string t_work
 	setJobMoney(400);
 }
 
+HighManager::~HighManager()
+{
+}
+
 int HighManager::getMoney()
 {
 	return 0;
 }
 
-void HighManager::setMoney(int ym, int b){
-	setYearMoney(ym*3);
+void HighManager::setMoney(int bm, int jm, int b, int d){
+	setBaseMoney(bm);
+	setJobMoney(jm);
 	setBonus(b);
+	setDividend(d);
+}
+
+void HighManager::setDividend(int m)
+{
+	dividend = m;
+}
+
+int HighManager::getDividend()
+{
+	return dividend;
 }

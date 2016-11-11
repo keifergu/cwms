@@ -4,15 +4,21 @@
 MiddleManager::MiddleManager(string t_name, string t_age,string t_sex, string t_worktime)
 : Staff(t_name, t_age, t_sex, t_worktime)
 {
-	setJob("中层管理人员");
+	setJob("Middle Manager");
 	setJobMoney(200);
 }
 
-int MiddleManager::getMoney(){
-	return 1;
+MiddleManager::~MiddleManager()
+{
 }
 
-void MiddleManager::setMoney(int ym, int b){
-	setYearMoney(ym*2);
+inline int MiddleManager::getMoney()
+{
+	return getBaseMoney() + getJobMoney() + getBonus();
+}
+
+inline void MiddleManager::setMoney(int bm, int jm, int b) {
+	setBaseMoney(bm);
+	setJobMoney(jm);
 	setBonus(b);
 }

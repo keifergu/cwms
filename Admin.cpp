@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "Admin.h"
 
 Admin::Admin() {
@@ -28,10 +28,10 @@ void Admin::showMenu() {
 	// 主菜单
 	int f = 1;
 	while (f != 0) {
-		cout << "------xx公司人员工资管理系统------" << endl;
-		cout << "1.员工管理界面" << endl;
-		cout << "2.工资管理界面" << endl;
-		cout << "请输入编号选择功能,输入q退出: ";
+		cout << "----XX公司财务及员工信息管理系统----" << endl;
+		cout << "1. 员工信息管理系统" << endl;
+		cout << "2. 财务管理系统" << endl;
+		cout << "请输入选项前的编号以进入系统（输入0退出系统）:";
 		cin >> f;
 
 		// 员工管理系统
@@ -40,11 +40,22 @@ void Admin::showMenu() {
 		// 工资管理系统
 		if (f == 2) showWageAdmin();
 
+		if (f == 0) exit(0);
 	}
 }
 
 void Admin::showWageAdmin() {
-
+	cout << "\n姓名\t年龄\t性别\t工作时间\t职位\t" << endl;
+	vector< vector<string>> staffInfo = getStaffInfo();
+	for (int i = 0; i < staffInfo.size(); i++)
+	{
+		for (int j = 0; j < staffInfo[i].size(); j++)
+		{
+			cout << staffInfo[i][j];
+		}
+		cout << endl;
+	}
+	cout << "\n\n";
 }
 
 void Admin::showAddStaff() {
@@ -52,57 +63,116 @@ void Admin::showAddStaff() {
 }
 
 void Admin::showStaffAdmin() {
-	int t = 1;
-	cout << "name\tage\tsex\twork time\tjob\t" << endl;
-	cout << middleStaff[t]->getName();
-	cout << middleStaff[t]->getAge();
-	cout << middleStaff[t]->getSex();
-	cout << middleStaff[t]->getWorkTime();
-	cout << middleStaff[t]->getMoney();
-	cout << middleStaff[t]->getJob() << endl;
-
-	int i = middleStaff.size();
-	int m = highStaff.size();
-	int n = financeStaff.size();
+	cout << "\n姓名\t年龄\t性别\t工作时间\t职位\t" << endl;
+	vector< vector<string>> staffInfo = getStaffInfo();
+	for (int i = 0; i < staffInfo.size(); i++)
+	{
+		for (int j = 0; j < staffInfo[i].size(); j++)
+		{
+			cout << staffInfo[i][j];
+		}
+		cout << endl;
+	}
 	cout << "\n\n";
 }
 
+vector< vector<string>> Admin::getStaffInfo() {
+	vector< vector<string>> staffInfo;
+	vector<string> stringTmp;
 
-string Admin::getStaffInfo() {
-	return (string)"sss";
+	int mlength = middleStaff.size();
+	int hlength = highStaff.size();
+	int slength = saleStaff.size();
+
+	for (int i = 0; i < mlength; i++)
+	{
+		stringTmp.push_back(middleStaff[i]->getName());
+		stringTmp.push_back(middleStaff[i]->getSex());
+		stringTmp.push_back(middleStaff[i]->getAge());
+		stringTmp.push_back(middleStaff[i]->getJob());
+		stringTmp.push_back(middleStaff[i]->getWorkTime());
+	}
+	staffInfo.push_back(stringTmp);
+	stringTmp.clear();
+
+	for (int i = 0; i < hlength; i++)
+	{
+		stringTmp.push_back(highStaff[i]->getName());
+		stringTmp.push_back(highStaff[i]->getSex());
+		stringTmp.push_back(highStaff[i]->getAge());
+		stringTmp.push_back(highStaff[i]->getJob());
+		stringTmp.push_back(highStaff[i]->getWorkTime());
+	}
+	staffInfo.push_back(stringTmp);
+	stringTmp.clear();
+
+	for (int i = 0; i < slength; i++)
+	{
+		stringTmp.push_back(saleStaff[i]->getName());
+		stringTmp.push_back(saleStaff[i]->getSex());
+		stringTmp.push_back(saleStaff[i]->getAge());
+		stringTmp.push_back(saleStaff[i]->getJob());
+		stringTmp.push_back(saleStaff[i]->getWorkTime());
+	}
+	staffInfo.push_back(stringTmp);
+	stringTmp.clear();
+
+	staffInfo.push_back(stringTmp);
+	return staffInfo;
 }
 
-string Admin::getAllWagesInfo() {
-	int i = middleStaff.size();
-	int m = highStaff.size();
-	int n = financeStaff.size();
+vector< vector<string>> Admin::getAllWagesInfo() {
+	vector< vector<string>> wageInfo;
+	vector<string> stringTmp;
+
+	int mlength = middleStaff.size();
+	int hlength = highStaff.size();
+	int slength = saleStaff.size();
+
 	int min = 999999, max = 0, total = 0;
-	int t;
-	cout << "\n\n正在计算工资情况\n";
-	for (t = 0; t<i; t++) {
-		int m = middleStaff[t]->getMoney();
-		min = min > m ? m : min;
-		max = max < m ? m : max;
-		total += m;
+
+	for (int i = 0; i < mlength; i++) {
+
+		stringTmp.push_back(middleStaff[i]->getName());
+		int m = middleStaff[i]->getMoney();
+		// int 类型转换为 string 再放入 vector
+		stringstream tmpa;
+		string tmpb;
+		tmpa << m;
+		tmpa >> tmpb;
+		stringTmp.push_back(tmpb);
 	}
-	for (t = 0; t<m; t++) {
-		int m = highStaff[t]->getMoney();
-		min = min > m ? m : min;
-		max = max < m ? m : max;
-		total += m;
+	wageInfo.push_back(stringTmp);
+	stringTmp.clear();
+
+	for (int i = 0; i < hlength; i++) {
+		stringTmp.push_back(highStaff[i]->getName());
+		int m = highStaff[i]->getMoney();
+		// int 类型转换为 string 再放入 vector
+		stringstream tmpa;
+		string tmpb;
+		tmpa << m;
+		tmpa >> tmpb;
+		stringTmp.push_back(tmpb);
 	}
-	for (t = 0; t<n; t++) {
-		int m = financeStaff[t]->getMoney();
-		min = min > m ? m : min;
-		max = max < m ? m : max;
-		total += m;
+	wageInfo.push_back(stringTmp);
+	stringTmp.clear();
+
+	for (int i = 0; i < slength; i++) {
+		stringTmp.push_back(highStaff[i]->getName());
+		int m = highStaff[i]->getMoney();
+		// int 类型转换为 string 再放入 vector
+		stringstream tmpa;
+		string tmpb;
+		tmpa << m;
+		tmpa >> tmpb;
+		stringTmp.push_back(tmpb);
 	}
-	int item;
-	cout << "最低工资为:" << min << endl;
-	cout << "最高工资为:" << max << endl;
-	cout << "总支出工资为:" << total << endl;
-	cout << "导出工资单请输入1:";
-	cin >> item;
+	wageInfo.push_back(stringTmp);
+	stringTmp.clear();
+
+	return wageInfo;
+	/*
 	if (item == 1) {
 		ofstream file;
 		file.open("staff.txt", ios::out | ios::app);
@@ -111,6 +181,7 @@ string Admin::getAllWagesInfo() {
 		cout << "导出成功\n\n\n";
 	}
 	return (string)"allWages";
+	*/
 }
 
 
@@ -136,20 +207,20 @@ void Admin::addStaff() {
 	switch (type) {
 	case(1) : {
 		MiddleManager* m = new MiddleManager((char*)name, (char*)age, (char*)sex, (char*)time);
-		m->setMoney((int)yearMoney, (int)bonus);
+		//m->setMoney((int)yearMoney, (int)bonus);
 		middleStaff.push_back(m);
 		break;
 	}
 	case(2) : {
 		HighManager* h = new HighManager((char*)name, (char*)age, (char*)sex, (char*)time);
-		h->setMoney(yearMoney, bonus);
+		//h->setMoney(yearMoney, bonus);
 		highStaff.push_back(h);
 		break;
 	}
 	case(3) : {
-		Finance* f = new Finance((char*)name, (char*)age, (char*)sex, (char*)time);
-		f->setMoney(yearMoney, bonus);
-		financeStaff.push_back(f);
+		Salesman* f = new Salesman((char*)name, (char*)age, (char*)sex, (char*)time);
+//		f->setMoney(1, 1.2);
+		saleStaff.push_back(f);
 		break;
 	}
 	default:

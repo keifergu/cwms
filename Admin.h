@@ -1,13 +1,6 @@
-#pragma once
-
-#include "Finance.h"
-#include "HighManager.h"
-#include "MiddleManager.h"
-
-#include <string>
+﻿#pragma once
+#include "stdafx.h"
 #include <vector>
-#include <fstream>
-#include <iostream>
 
 using namespace std;
 
@@ -24,8 +17,8 @@ public:
 	void showWageAdmin();			// 显示工资管理界面
 	void showStaffAdmin();		// 显示员工管理界面
 
-	string getStaffInfo();  	// 获得员工的所有基本信息
-	string getAllWagesInfo(); // 获得所有的工资信息
+	vector< vector<string>> getStaffInfo();  	// 获得员工的所有基本信息
+	vector< vector<string>> getAllWagesInfo(); // 获得所有的工资信息
 
 	void addStaff();					// 添加一个员工
 	void setStaffInfo(int i); // 设置某一个员工的信息
@@ -34,7 +27,7 @@ public:
 	void importFile(char* type, char* path);				// 导入员工信息文件
 
 private:
-	vector<Finance*> financeStaff;
-	vector<HighManager*> highStaff;
-	vector<MiddleManager*> middleStaff;
+	vector<Salesman* > saleStaff;
+	vector<HighManager* > highStaff;
+	vector<MiddleManager* > middleStaff;
 };

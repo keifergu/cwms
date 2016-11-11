@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 using namespace std;
 
@@ -8,16 +8,24 @@ public:
 	Staff(string t_name, string t_age,string t_sex, string t_worktime);
 	~Staff();
 
-	string getSex();								// 获得员工性别
-	string getJob();								// 获得员工的工作岗位
-	string getAge();								// 获得员工年龄
-	string getName();							// 获得员工姓名
-	string getWorkTime();					// 获得员工工作年限
+	// 获取相应的员工信息
+	string getSex();
+	string getJob();
+	string getAge();
+	string getName();
+	string getWorkTime();
 
-	void setBonus(int);					// 设置奖金
-	void setJobMoney(int);			// 设置岗位工资
-	void setBaseMoney(int);			// 设置基本工资
-	void setYearMoney(int);			// 设置工作年限工资
+	// 设置相应的工资项
+	void setBonus(int);       // 奖金
+	void setJobMoney(int);    // 工作工资
+	void setBaseMoney(int);   // 基本工资
+	void setYearMoney(int);   // 年终奖
+
+    // 获取相应的工资项
+	int getBonus();
+	int getJobMoney();
+	int getBaseMoney();
+	int getYearMoney();
 
 	void setJob(string);			// 设置岗位
 
