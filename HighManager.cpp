@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "HighManager.h"
 
 HighManager::HighManager(string t_name, string t_age,string t_sex, string t_worktime)
@@ -14,7 +14,7 @@ HighManager::~HighManager()
 
 int HighManager::getMoney()
 {
-	return 0;
+	return getBaseMoney() + getJobMoney() + getBonus() + getDividend();
 }
 
 void HighManager::setMoney(int bm, int jm, int b, int d){

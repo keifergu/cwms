@@ -1,10 +1,10 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "Salesman.h"
 
 Salesman::Salesman(string t_name, string t_age, string t_sex, string t_worktime)
 	: Staff(t_name, t_age, t_sex, t_worktime)
 {
-	setJob("SalesMan");
+	setJob("销售人员");
 }
 
 Salesman::~Salesman()
