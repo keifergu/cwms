@@ -2,6 +2,16 @@
 ## 说明
 ### 下载
 `git clone https://github.com/keifergu/cwms.git`
+
+### 使用说明
+使用`Visual Studio 2015`或其它版本导入该目录下的所有文件，`cwms.cpp`为主函数位置，编译运行。
+### 结构说明
+- `Staff.h`：员工基类，储存员工姓名等信息；虚函数也在此处
+- `MiddleManager.h`：中层管理人员类，继承自`Staff`类，重载`getMongey()`函数
+- `HighManager.h`：高层管理人员类，继承自`Staff`类，重载`getMongey()`函数，添加私有属性
+- `Salesman.h`：销售员工类，继承自`Staff`类，重载`getMoney()`,添加私有属性
+- `Admin.h`：程序的控制类，储存所有的员工信息，显示菜单界面，负责数据交互
+
 # 题目
 ## 1.需求
 该程序设计的是一个小企业的工资管理工具。小企业中，包括普通员工、中层管理人员、财务人员、高层管
