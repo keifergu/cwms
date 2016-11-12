@@ -27,6 +27,10 @@ void Admin::init() {
 	highStaff.push_back(mm2);
 	saleStaff.push_back(mm3);
 
+	allStaff.push_back(mm1);
+	allStaff.push_back(mm2);
+	allStaff.push_back(mm3);
+
 	// 显示主菜单
 	showMenu();
 }
@@ -195,46 +199,19 @@ void Admin::showAllWageInfo()
 vector< vector<string>> Admin::getStaffInfo() {
 	vector< vector<string>> staffInfo;
 	vector<string> stringTmp;
+	
+	int length = allStaff.size();
 
-	int mlength = middleStaff.size();
-	int hlength = highStaff.size();
-	int slength = saleStaff.size();
-
-	for (int i = 0; i < mlength; i++)
+	for (int i = 0; i < length; i++)
 	{
-		stringTmp.push_back(middleStaff[i]->getName());
-		stringTmp.push_back(middleStaff[i]->getSex());
-		stringTmp.push_back(middleStaff[i]->getAge());
-		stringTmp.push_back(middleStaff[i]->getJob());
-		stringTmp.push_back(middleStaff[i]->getWorkTime());
+		stringTmp.push_back(allStaff[i]->getName());
+		stringTmp.push_back(allStaff[i]->getSex());
+		stringTmp.push_back(allStaff[i]->getAge());
+		stringTmp.push_back(allStaff[i]->getJob());
+		stringTmp.push_back(allStaff[i]->getWorkTime());
 		staffInfo.push_back(stringTmp);
 		stringTmp.clear();
 	}
-
-
-	for (int i = 0; i < hlength; i++)
-	{
-		stringTmp.push_back(highStaff[i]->getName());
-		stringTmp.push_back(highStaff[i]->getSex());
-		stringTmp.push_back(highStaff[i]->getAge());
-		stringTmp.push_back(highStaff[i]->getJob());
-		stringTmp.push_back(highStaff[i]->getWorkTime());
-		staffInfo.push_back(stringTmp);
-		stringTmp.clear();
-	}
-
-
-	for (int i = 0; i < slength; i++)
-	{
-		stringTmp.push_back(saleStaff[i]->getName());
-		stringTmp.push_back(saleStaff[i]->getSex());
-		stringTmp.push_back(saleStaff[i]->getAge());
-		stringTmp.push_back(saleStaff[i]->getJob());
-		stringTmp.push_back(saleStaff[i]->getWorkTime());
-		staffInfo.push_back(stringTmp);
-		stringTmp.clear();
-	}
-
 	return staffInfo;
 }
 
@@ -242,17 +219,15 @@ vector< vector<string>> Admin::getAllWagesInfo() {
 	vector< vector<string>> wageInfo;
 	vector<string> stringTmp;
 
-	int mlength = middleStaff.size();
-	int hlength = highStaff.size();
-	int slength = saleStaff.size();
+	int mlength = allStaff.size();
 
 	int min = 999999, max = 0, total = 0;
 
 	for (int i = 0; i < mlength; i++) {
 
-		stringTmp.push_back(middleStaff[i]->getName());
-		stringTmp.push_back(middleStaff[i]->getJob());
-		int m = middleStaff[i]->getMoney();
+		stringTmp.push_back(allStaff[i]->getName());
+		stringTmp.push_back(allStaff[i]->getJob());
+		int m = allStaff[i]->getMoney();
 		// int 类型转换为 string 再放入 vector
 		stringstream tmpa;
 		string tmpb;
@@ -263,39 +238,6 @@ vector< vector<string>> Admin::getAllWagesInfo() {
 		wageInfo.push_back(stringTmp);
 		stringTmp.clear();
 	}
-
-
-	for (int i = 0; i < hlength; i++) {
-		stringTmp.push_back(highStaff[i]->getName());
-		stringTmp.push_back(highStaff[i]->getJob());
-		int m = highStaff[i]->getMoney();
-		// int 类型转换为 string 再放入 vector
-		stringstream tmpa;
-		string tmpb;
-		tmpa << m;
-		tmpa >> tmpb;
-		stringTmp.push_back(tmpb);
-
-		wageInfo.push_back(stringTmp);
-		stringTmp.clear();
-	}
-
-
-	for (int i = 0; i < slength; i++) {
-		stringTmp.push_back(saleStaff[i]->getName());
-		stringTmp.push_back(saleStaff[i]->getJob());
-		int m = saleStaff[i]->getMoney();
-		// int 类型转换为 string 再放入 vector
-		stringstream tmpa;
-		string tmpb;
-		tmpa << m;
-		tmpa >> tmpb;
-		stringTmp.push_back(tmpb);
-
-		wageInfo.push_back(stringTmp);
-		stringTmp.clear();
-	}
-
 
 	return wageInfo;
 }
@@ -377,6 +319,37 @@ void Admin::exportAllWage()
 			file << staffInfo[i][j] << " ";
 		}
 		file << "\n";
+	}
+	file.close();
+}
+
+void Admin::exportAllStaff()
+{
+	vector< vector<string>> staffInfo = getStaffInfo();
+	ofstream file;
+	file.open("staffInfo.txt", ios::out | ios::app);
+	for (int i = 0; i < (int)staffInfo.size(); i++)
+	{
+		for (int j = 0; j < (int)staffInfo[i].size(); j++)
+		{
+			file << staffInfo[i][j] << " ";
+		}
+		file << "\n";
+	}
+	file.close();
+}
+
+void Admin::importAllStaff()
+{
+	vector< vector<string>> staffInfo;
+	ifstream file;
+	char buffer[512];
+	string tmp;
+	file.open("staffInfo.txt");
+	while (!file.eof())
+	{
+		file.getline(buffer, 512, ' ');
+		cout << buffer << " ";
 	}
 	file.close();
 }

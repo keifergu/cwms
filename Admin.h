@@ -28,6 +28,8 @@ public:
 
 
 	void exportAllWage();	// 导出文件
+	void exportAllStaff(); 
+	void importAllStaff();	// 引入文件
 
 	vector< vector<string>> getStaffInfo();  	// 获得员工的所有基本信息
 	vector< vector<string>> getAllWagesInfo();  // 获得所有的工资信息
@@ -37,4 +39,6 @@ private:
 	vector<Salesman* > saleStaff;
 	vector<HighManager* > highStaff;
 	vector<MiddleManager* > middleStaff;
+
+	vector<Staff*> allStaff;
 };

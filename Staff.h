@@ -17,7 +17,7 @@ public:
 
 	// 设置相应的工资项
 	void setBonus(int);       // 奖金
-	void setJobMoney(int);    // 工作工资
+	void setJobMoney(int);    // 职位工资
 	void setBaseMoney(int);   // 基本工资
 	void setYearMoney(int);   // 年终奖
 
